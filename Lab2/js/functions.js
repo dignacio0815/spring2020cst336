@@ -13,34 +13,43 @@ resetButton.style.display = 'none';
 
 
 function checkGuess() {
-    console.log('I am working');
     var userGuess = Number(guessField.value);
-    if(guessCount == 1) {
-        guesses.innerHTML = 'Previous guess: ';
+    if(userGuess >= 100) {
+        console.log('Im too big');
+        guesses.innerHTML = "Error! That number is too high";
+        return;
     }
-    guesses.innerHTML += userGuess + ' ';
-    
-    if(userGuess === randomNumber) {
-        lastResult.innerHTML = 'Congratulations! You got it right!';
-        lastResult.style.backgroundColor = 'green';
-        lowOrHi.innerHTML = '';
-        setGameOver();
-    } else if(guessCount === 7) {
-        lastResult.innerHTML = 'Sorry, you lost!'
-        setGameOver();
-    } else {
-        lastResult.innerHTML = 'Wrong!';
-        lastResult.style.backgroundColor = 'red';
-        if(userGuess < randomNumber) {
-            lowOrHi.innerHTML = 'Last guess was too low!';
-        } else if(userGuess > randomNumber) {
-            lowOrHi.innerHTML = 'Last guess was too high!';
+    else if(!userGuess.isInteger()) {
+        console.log("I am an not an integer");
+    } 
+    else {
+        if(guessCount == 1) {
+            guesses.innerHTML = 'Previous guess: ';
         }
+        guesses.innerHTML += userGuess + ' ';
+        
+        if(userGuess === randomNumber) {
+            lastResult.innerHTML = 'Congratulations! You got it right!';
+            lastResult.style.backgroundColor = 'green';
+            lowOrHi.innerHTML = '';
+            setGameOver();
+        } else if(guessCount === 7) {
+            lastResult.innerHTML = 'Sorry, you lost!'
+            setGameOver();
+        } else {
+            lastResult.innerHTML = 'Wrong!';
+            lastResult.style.backgroundColor = 'red';
+            if(userGuess < randomNumber) {
+                lowOrHi.innerHTML = 'Last guess was too low!';
+            } else if(userGuess > randomNumber) {
+                lowOrHi.innerHTML = 'Last guess was too high!';
+            }
+        }
+        
+        guessCount++;
+        guessField.value = '';
+        guessField.focus();
     }
-    
-    guessCount++;
-    guessField.value = '';
-    guessField.focus();
 }
 
 guessSubmit.addEventListener('click', checkGuess);
