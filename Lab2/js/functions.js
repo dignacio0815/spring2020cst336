@@ -18,7 +18,7 @@ function checkGuess() {
         console.log('Im too big');
         guesses.innerHTML = "Error! That number is too high";
     }
-    else if(userGuess === parseInt(data, 10)) {
+    else if(!isInt(userGuess)) {
         console.log("I am an not an integer");
     } 
     else {
@@ -78,4 +78,9 @@ function resetGame() {
     lastResult.style.backgroundColor = 'white';
     
     randomNumber = Math.floor(Math.random() * 99) + 1;
+}
+
+function isInt(value) {
+  if (isNaN(value)) 
+    return false;
 }
