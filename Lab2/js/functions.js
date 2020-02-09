@@ -18,7 +18,7 @@ function checkGuess() {
         console.log('Im too big');
         guesses.innerHTML = "Error! That number is too high";
     }
-    else if(!userGuess.isInteger()) {
+    else if(userGuess === parseInt(data, 10)) {
         console.log("I am an not an integer");
     } 
     else {
