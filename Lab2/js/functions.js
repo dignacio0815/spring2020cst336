@@ -8,6 +8,9 @@ var guessField = document.querySelector('.guessField');
 
 var guessCount = 1;
 var resetButton = document.querySelector('#reset');
+
+var totalWins = 0;
+var totalLosses = 0;
 guessField.focus();
 resetButton.style.display = 'none';
 
@@ -15,11 +18,10 @@ resetButton.style.display = 'none';
 function checkGuess() {
     var userGuess = Number(guessField.value);
     if(userGuess >= 100) {
-        console.log('Im too big');
         guesses.innerHTML = "Error! That number is too high";
     }
-    else if(isInt(userGuess)) {
-        console.log("I am an not an integer");
+    else if(isNaN(parseFloat(userGuess))) {
+        guesses.innerHTML = "Error! Your input is not a number";
     } 
     else {
         if(guessCount == 1) {
@@ -31,9 +33,11 @@ function checkGuess() {
             lastResult.innerHTML = 'Congratulations! You got it right!';
             lastResult.style.backgroundColor = 'green';
             lowOrHi.innerHTML = '';
+            totalWins += 1;
             setGameOver();
         } else if(guessCount === 7) {
             lastResult.innerHTML = 'Sorry, you lost!'
+            totalLosses += 1;
             setGameOver();
         } else {
             lastResult.innerHTML = 'Wrong!';
@@ -58,6 +62,11 @@ function setGameOver() {
     guessSubmit.disabled = true;
     resetButton.style.display = 'inline';
     resetButton.addEventListener('click', resetGame);
+    
+    console.log(totalLosses);
+    console.log(totalWins);
+    updateLosses();
+    updateWins();
 }
 
 function resetGame() {
@@ -80,7 +89,10 @@ function resetGame() {
     randomNumber = Math.floor(Math.random() * 99) + 1;
 }
 
-function isInt(value) {
-  if (isNaN(value)) 
-    return false;
+function updateLosses() {
+    document.getElementById('lossCount').innerHTML = totalLosses;
+}
+
+function updateWins() {
+    document.getElementById('winCount').innerHTML = totalWins;
 }

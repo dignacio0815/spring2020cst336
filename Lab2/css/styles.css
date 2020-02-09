@@ -16,3 +16,23 @@ body{
     margin:0 auto;
     border-radius:20px;
 }
+
+#wins {
+  position: absolute;
+  bottom: 20%;
+  left: 35%;
+  font-size: 2em;
+  background-color: #edf2f9;
+  border-radius: 25px;
+  padding: 1em;
+}
+
+#losses {
+  position: absolute;
+  bottom: 20%;
+  right: 35%;
+  font-size: 2em;
+  background-color: #edf2f9;
+  border-radius: 25px;
+  padding: 1em;
+}
