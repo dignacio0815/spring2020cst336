@@ -49,6 +49,13 @@
                     score+=20;
                 }
                 
+                function rightAnswerTwo(index) {
+                    $(`#q${index}Feedback`).html('Correct!');
+                    $(`#q${index}Feedback`).attr('class', 'bg-success text-white');
+                    $(`#markImg${index}`).html("<img src='img/checkmark.png'>");
+                    score+=12.50;
+                }
+                
                 function wrongAnswer(index) {
                     $(`#q${index}Feedback`).html('Incorrect!');
                     $(`#q${index}Feedback`).attr('class', 'bg-warning text-white');
@@ -106,21 +113,21 @@
                     
                     // Question 6
                     if($('#Colorado').is(':checked') && !$('#Idaho').is(':checked') && !$('#Missouri').is(':checked') && !$('#Texas').is(':checked')) {
-                        rightAnswer(6);
+                        rightAnswerTwo(6);
                     } else {
                         wrongAnswer(6);
                     }
                     
                     // Question 7
                     if(q7Response == 'alaska') {
-                        rightAnswer(7);
+                        rightAnswerTwo(7);
                     } else {
                         wrongAnswer(7);
                     }
                     
                     // Question 8
                     if(q8Response == 'west coast' || q8Response == 'west') {
-                        rightAnswer(8);
+                        rightAnswerTwo(8);
                     } else {
                         wrongAnswer(8);
                     }
