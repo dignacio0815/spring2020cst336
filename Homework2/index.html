@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+      <link rel="stylesheet" href="css/styles.css" type="text/css" />
+      <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+      
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+          
+      </script>
+      <title>Mental Health Test</title>
+    </head>
+    
+    <body>
+        <div class="jumbotron jumbotron-fluid">
+            <h1>Mental Health & Stress Test</h1>
+            <h3>Please feel free to be honest with your thoughts. This is just a test to asess your mental state.</h3>
+            
+            <form>
+                Firstly, what is your first and last name? <br>
+                <label for="fname">First name:</label>
+                <input type="text" id="fname" name="fname">
+                <label for="lname">Last name:</label>
+                <input type="text" id="lname" name="lname"><br>
+                
+                How are you feeling on a scale of 1 to 3? 1 being anxius / sad, 2 being neutral, 3 being great.<br>
+                <input type="radio" name="feeling" value="sad"/> 1
+                <input type="radio" name="feeling" value="neutral"/> 2
+                <input type="radio" name="feeling" value="happy"/> 3
+                <br>
+                Typically, do you feel sad, happy, or out of place?<br>
+                <input type="radio" name="typical" value="sad"/> Sad
+                <input type="radio" name="typical" value="out"/> Out of place
+                <input type="radio" name="typical" value="happy"/> Happy
+                <br>
+                Are you ok with who you are as a person?<br>
+                <input type="radio" name="ok" value="yes"/> Yes
+                <input type="radio" name="ok" value="no"/> No
+                <br>
+                Do you feel that you are behind in life?<br>
+                <input type="radio" name="behind" value="yes"/> Yes
+                <input type="radio" name="behind" value="no"/> No
+                <br>
+                Lastly, feel free to write your thoughts...think of this as a theraputic & reflective way of understanding yourself <br>
+                <textarea id="textarea" rows="6" cols="70" placeholder=""></textarea>
+                <br>
+                <input id="button" type="button" value="Get Value">
+                
+            </form>
+            
+            <h3 id="result"></h3>
+        </div>
+        <script type="text/javascript" src="js/app.js"></script>
+    </body>
+</html>
