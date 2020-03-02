@@ -24,6 +24,7 @@ function onLoad() {
 function afterLoad() {
     $("#submit").on("click", function() {
         var orientation = $("#orientation option:selected").val();
+        orientation = orientation.replace(' ', '+');
         var keyword = $("#keyword").val();
         $.ajax({
         method: "GET", 
