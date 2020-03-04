@@ -1,4 +1,28 @@
 <!DOCTYPE html>
 <html>
-    Sup
+    <head>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/styles.css" type="text/css" />
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    
+    <body>
+        <div class="container">
+        <div class="jumbotron">
+            <div id="Query">
+            <h1>Open Libary</h1>
+            <p>Please enter the IBSN of the bood you'd like to receive</p>
+            <form>
+                IBSN<input type="text" placeholder="0" id="input"/>
+                <input class="btn btn-primary" type="button" name="query" value="Query" id="button"/>
+            </form>
+            </div>
+            <div id="result">
+                
+            </div>
+        </div>
+        </div>
+        
+        <script type="text/javascript" src="js/app.js"></script>
+    </body>
 </html>
