@@ -18,6 +18,8 @@ $("#button").on("click", function() {
             $("#result").append("<div>" + data["ISBN:" + ISBN]["authors"] + "</div>")
             $("#result").append("<div>" + data["ISBN:" + ISBN]["publishers"][0][0] + "</div>")
             $("#result").append("<div>" + data["ISBN:" + ISBN]["title"] + "</div>")
+            $("#result").append("<div>" + data["ISBN:" + ISBN]["publish_date"] + "</div>")
+            $("#result").append("<div>" + data["ISBN:" + ISBN]["number_of_pages"] + "</div>")
             console.log(data["ISBN:" + ISBN])
         },
         error:function() {
