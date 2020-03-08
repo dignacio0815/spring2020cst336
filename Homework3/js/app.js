@@ -1,5 +1,5 @@
 var url = "https://api.unsplash.com/photos/random"
-var accessKey = "7ERoJpBBBUoA9ksJbznB_cd-2ZuyWLKykXUAcwLeM1I"
+var accessKey = ""
 var input = $("#input").val()
 var select = $("#select").val()
 var amount = $("#amount").val()
