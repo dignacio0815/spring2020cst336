@@ -8,6 +8,7 @@ var featured = $("#featured").val()
 $(document).ready(function() {
     $("#button").on("click", function() {
     $(".flex-container").empty()
+    $("#limit").empty()
     input = $("#input").val()
     select = $("#select").val()
     amount = $("#amount").val()
@@ -16,6 +17,16 @@ $(document).ready(function() {
         featured = true
     } else {
         featured = false
+    }
+    if(amount > 30 || amount < 1) {
+        $("#limit").append("<h2>Amount was not in bounds. Set amount to 1</h2>");
+        amount = 1
+    } 
+    if(featured == "Featured photos?") {
+        featured = true;
+    }
+    if(select == "Order pictures by:") {
+        select = "latest"
     }
     $.ajax({
         method: "GET",
@@ -39,4 +50,3 @@ $(document).ready(function() {
         }) 
     })
 })
-
