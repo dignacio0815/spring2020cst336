@@ -10,9 +10,11 @@ const request = require("request");
 app.get("/", async function(req, res) {
     let randomKeywords = ["otters", "basketball", "tennis", "soccer", "technology"]
     let randomIndex = Math.floor(Math.random() * 5)    
-    let parsedData = await getImages(randomKeywords[randomIndex], "all");
+    let parseData = await getImages(randomKeywords[randomIndex], "all");
     let numbers = randomNumbers();
-    res.render("index", {"image":parsedData, "indexes":numbers});
+    let likes = [parseData.hits[numbers[0]].likes, parseData.hits[numbers[1]].likes, parseData.hits[numbers[2]].likes, parseData.hits[numbers[3]].likes]
+
+    res.render("index", {"images":parseData, "indexes":numbers, "likes":likes});
     
 });
 
