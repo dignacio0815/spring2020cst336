@@ -13,7 +13,10 @@
         </form>
         <br>
         
-        <img src='<%-image.hits[1].largeImageURL%>' width='25%'>
-        <img src='<%= image.hits[0].largeImageURL %>' width='25%'>
+        
+        <img src='<%= image.hits[indexes[0]].largeImageURL %>' width='25%'>
+        <img src='<%= image.hits[indexes[1]].largeImageURL %>' width='25%'>
+        <img src='<%= image.hits[indexes[2]].largeImageURL %>' width='25%'>
+        <img src='<%= image.hits[indexes[3]].largeImageURL %>' width='25%'>
 
 <%- include('partials/footer.ejs') %>

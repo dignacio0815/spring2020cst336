@@ -11,10 +11,8 @@ app.get("/", async function(req, res) {
     let randomKeywords = ["otters", "basketball", "tennis", "soccer", "technology"]
     let randomIndex = Math.floor(Math.random() * 5)    
     let parsedData = await getImages(randomKeywords[randomIndex], "all");
-    
-    // dir displays content of an object
-    // console.dir("Parsed Data: " + parsedData);
-    res.render("index", {"image":parsedData});
+    let numbers = randomNumbers();
+    res.render("index", {"image":parsedData, "indexes":numbers});
     
 });
 
@@ -25,11 +23,11 @@ app.get("/results", async function(req, res) {
     let orientation = req.query.orientation;
     let parseData = await getImages(keyword, orientation);
     let numbers = randomNumbers();
-    console.log(numbers)
-    
+    let likes = [parseData.hits[numbers[0]].likes, parseData.hits[numbers[1]].likes, parseData.hits[numbers[2]].likes, parseData.hits[numbers[3]].likes]
     res.render("results", {
                             "images":parseData,
-                            "indexes":numbers   
+                            "indexes":numbers,
+                            "likes":likes
                            });
 });
 
@@ -43,9 +41,6 @@ function getImages(keyword, orientation) {
                 let parseData = JSON.parse(body);
                 // returns ParseData in root route
                 resolve(parseData); 
-                // let index = Math.floor(Math.random() * parseData.hits.length);
-                // res.send("<img src='" + parseData.hits[index].largeImageURL + "'/>");      
-                // res.render("index", {"image":parseData.hits[index].largeImageURL});
             } else {
                 reject(error);
                 console.log(error);
@@ -55,6 +50,7 @@ function getImages(keyword, orientation) {
     });
 }
 
+// generates 4 random numbers to be used as indices
 function randomNumbers() {
     let numbers = [];
     let index = 0
