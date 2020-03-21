@@ -1,25 +1,21 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            Pixabay Image Search
-        </title>
-    </head>
-    <body>
+<%- include('partials/header.ejs') %>
+
         <h1>Pixabay Search Results</h1>
         
         <form method="GET" action="/results">
             Keyword: <input type="text" name="keyword">
+            <select name="orientation">
+                <option>Orientation</option>
+                <option>vertical</option>
+                <option>horizontal</option>
+            </select>
             <button>Search!</button>
         </form>
         <br>
         
-        Display several images here!
         <br>
-         <img src='<%= images.hits[0].largeImageURL %>' width='250'>
-         <img src='<%= images.hits[1].largeImageURL %>' width='250'>
-          <img src='<%= images.hits[2].largeImageURL %>' width='250'>
-           <img src='<%= images.hits[3].largeImageURL %>' width='250'>
-        
-    </body>
-</html>
+         <img src='<%= images.hits[indexes[0]].largeImageURL %>' width='250'>
+         <img src='<%= images.hits[indexes[1]].largeImageURL %>' width='250'>
+          <img src='<%= images.hits[indexes[2]].largeImageURL %>' width='250'>
+           <img src='<%= images.hits[indexes[3]].largeImageURL %>' width='250'>
+<%- include('partials/footer.ejs') %>
